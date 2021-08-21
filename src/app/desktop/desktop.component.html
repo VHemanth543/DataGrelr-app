@@ -1,0 +1,134 @@
+<!-- DISPLAY ERROR MESSAGE -->
+
+<div *ngIf="message" style="border : 1px solid red">
+  <p style="font-size: 20px; color: red;"> <b style="color: royalblue;"> <mat-icon style="color: red; padding-top: 10px; padding-left: 20px;">warning</mat-icon> Warging : </b>  {{message}} </p>
+</div>
+
+<!-- USER FORM -->
+<div id="body" style="width : 500px;  background-color: rgb(135, 135, 161); padding: 0px; border-radius: 5px; padding-left: 10px;;">
+    
+  <!-- PERSONAL DETAILS -->
+    <div style="padding-top : 10px;">
+      
+        <mat-label style="color: blue; font-size: 18px;">Personal Details :</mat-label>
+      
+    </div>
+    
+      <mat-grid-list cols="2" rowHeight="100px" style="padding: 0px; margin: 0px;">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>First Name </mat-label>
+            <input matInput required [(ngModel)]="first_name">
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Last Name </mat-label>
+            <input matInput required [(ngModel)]="last_name">
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Last Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Email </mat-label>
+            <input matInput required [(ngModel)]="email" >
+            
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="number" [(ngModel)]="age" min="0">
+          </mat-form-field>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select [(value)]="gender">
+              <mat-option [value]="item" *ngFor="let item of gender_type"> {{item}} </mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+  
+      <!-- USER DETAILS -->
+      <div>
+        
+          <mat-label style="color: blue; font-size: 18px;">Account Details :</mat-label>
+        
+      </div>
+  
+      <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>User Name </mat-label>
+            <input matInput required [(ngModel)]="user_name">
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              User Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label> Password </mat-label>
+            <input matInput required [(ngModel)]="password">
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Conform Password </mat-label>
+            <input matInput required [(ngModel)]="comp_password">
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Conform Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        
+
+        <!-- SELECTING STORAGE TYPE -->
+        <mat-grid-tile colspan="2">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Storage Type</mat-label>
+            <mat-select [(value)]="storage">
+              <mat-option [value]="item" *ngFor="let item of storage_type"> {{item}} </mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+  
+        
+      </mat-grid-list>
+      
+      <!-- SUBMITTING THE FORM-->
+      <mat-grid-list cols="2" rowHeight="100px" style="margin-top: 0px;">
+        <mat-grid-tile colspan="2">
+          <button mat-raised-button color="primary" style="width: 200px;" (click)="submit()"> submit</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+     
+   
+  
+  </div>
+  
+  
+  
